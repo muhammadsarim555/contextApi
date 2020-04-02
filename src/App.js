@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+
+import { UserProvider } from "./userContext";
+import Login from "./login";
+import Home from "./home";
 
 function App() {
+  const [name, setName] = useState("");
+  const [name2, setName2] = useState("");
+
+  // useEffect(() => {
+  //   console.log("use effect");
+  // }, [name]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserProvider value={"sarim123"}>
+        <Login />
+        <Home />
+      </UserProvider>
     </div>
   );
 }
